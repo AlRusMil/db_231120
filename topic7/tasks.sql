@@ -6,6 +6,10 @@ SELECT name
 FROM users
 WHERE id IN (SELECT DISTINCT user_id FROM orders);
 
+SELECT name
+FROM users AS u
+JOIN orders AS o ON u.id = o.user_id;
+
 -- 2. Выведите список товаров products и разделов catalogs, который соответствует товару.
 SELECT pr.name, pr.description, pr.price, ct.name AS catalog
 FROM products AS pr JOIN catalogs AS ct
